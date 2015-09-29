@@ -48,7 +48,7 @@ var RQ = (function () {
     };
     RQ.prototype.get_status = function (msg_id, callback) {
         // TODO: verify parms - create an object
-        var parts = msg_id.split('/');
+        var parts = msg_id.split('/'); // Full msg-id
         var queue_name = parts[4];
         var payload = { msg_id: parts[5] };
         var packet = this.create_rq_packet("get_message_status", payload);
@@ -58,6 +58,12 @@ var RQ = (function () {
             var idx = result.status.indexOf(' - ');
             return [status["status"].slice(0, idx), status["status"].slice(idx + 3)];
         });
+    };
+    RQ.prototype.create_message = function (msg, callback) {
+        // TODO: verify parms - create an object
+        var queue_name = msg["dest"]; // Just the queue name
+        var packet = this.create_rq_packet("create_message", msg);
+        this.send_packet(queue_name, packet, callback);
     };
     return RQ;
 })();
