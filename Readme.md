@@ -17,6 +17,11 @@ __rq-utils__ is a simple library of convenience methods for interaction with the
 
 This project is written in TypeScript and builds with gulp. The result is just one file.
 
+
+    $ ./node_modules/.bin/tsd query node --action install
+    $ ./node_modules/.bin/gulp typescript
+
+
 ## Credits
 
 This code was developed by Dru Nelson (<https://github.com/drudru>).

@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES5",
+    "module": "system",
     "noEmitOnError": true,
     "removeComments": false,
     "out": "rq-utils.js"
-  }
+  },
+  "exclude": [ "node_modules" ]
 }
