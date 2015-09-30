@@ -8,6 +8,7 @@ var sprintf = require('sprintf-js').sprintf;
 // TODO
 // enum for status
 // objects for msg and msg-id
+// logging with levels
 
 class RQ
 {
