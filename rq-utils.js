@@ -57,7 +57,7 @@ var RQ = (function () {
             if (err)
                 return callback(err, null);
             var idx = result.status.indexOf(' - ');
-            return [result["status"].slice(0, idx), result["status"].slice(idx + 3)];
+            return callback(null, [result["status"].slice(0, idx), result["status"].slice(idx + 3)]);
         });
     };
     RQ.prototype.create_message = function (msg, callback) {
