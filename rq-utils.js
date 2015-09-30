@@ -4,6 +4,7 @@ var sprintf = require('sprintf-js').sprintf;
 // TODO
 // enum for status
 // objects for msg and msg-id
+// logging with levels
 var RQ = (function () {
     function RQ(rq_base_dir) {
         this.rq_base_dir = rq_base_dir;
@@ -56,7 +57,7 @@ var RQ = (function () {
             if (err)
                 return callback(err, null);
             var idx = result.status.indexOf(' - ');
-            return [status["status"].slice(0, idx), status["status"].slice(idx + 3)];
+            return [result["status"].slice(0, idx), result["status"].slice(idx + 3)];
         });
     };
     RQ.prototype.create_message = function (msg, callback) {
