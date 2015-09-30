@@ -1,6 +1,6 @@
 {
   "name": "rq-utils",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Communicate with the RQ queueing system for unix (http://github.com/drudru/rq)",
   "keywords": ["rq", "queueing"],
   "author": "drudru <drudru@gmail.com>",

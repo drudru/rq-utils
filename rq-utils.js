@@ -56,8 +56,18 @@ var RQ = (function () {
         this.send_packet(queue_name, packet, function (err, result) {
             if (err)
                 return callback(err, null);
-            var idx = result.status.indexOf(' - ');
-            return callback(null, [result["status"].slice(0, idx), result["status"].slice(idx + 3)]);
+            var full_status = result["status"];
+            var idx = full_status.indexOf(' - ');
+            if (idx != -1) {
+                var status = full_status.slice(0, idx);
+                var user_msg = full_status.slice(idx + 3);
+            }
+            else {
+                // The odd case of just status without a user message
+                var status = full_status;
+                var user_msg = '';
+            }
+            return callback(null, [status, user_msg]);
         });
     };
     RQ.prototype.create_message = function (msg, callback) {
